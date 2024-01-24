@@ -56,7 +56,16 @@ func Yaml2CliParams(inputFiles ...string) string {
 			}
 			cliParam += " " + strings.Join(values, " ")
 		default:
-			cliParam += fmt.Sprintf(" %v", v)
+			switch v {
+			case nil:
+				continue
+			case false:
+				continue
+			case true:
+				// true is the value when flag is set, value is not required
+			default:
+				cliParam += fmt.Sprintf(" %v", v)
+			}
 		}
 
 		cliParams = append(cliParams, cliParam)

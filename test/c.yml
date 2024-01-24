@@ -1,0 +1,9 @@
+---
+b:
+    - 1
+    - 2
+c: 3
+d: 4
+e: null
+f: true
+g: false
